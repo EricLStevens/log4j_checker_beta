@@ -140,7 +140,7 @@ if [ "$(command -v unzip)" ]; then
   # incect find_jar_files at the end of the while loop to prevent extra shell
   while read -r jar_file; do
     unzip -l "$jar_file" 2> /dev/null \
-      | grep -q -i "log4j" && \
+      | grep -q -i "org/apache/logging/log4j/core/lookup/JndiLookup.class" && \
       echo && \
       warning "[$COUNT - contains log4j files] $jar_file"
     COUNT=$(($COUNT + 1))
